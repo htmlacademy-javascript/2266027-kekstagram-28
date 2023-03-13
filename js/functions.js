@@ -42,10 +42,19 @@ console.log(isPolindrom('ДовОд'));
 // имяФункции(2023); // 2023
 // имяФункции(-1);   // 1
 // имяФункции(1.5);  // 15
-
-
-
-
+const extractNumber = (string) => {
+  if (typeof string === 'number') {
+    return string;
+  }
+  let result = '';
+  for (let i = 0; i < string.length; i++) {
+    if (!Number.isNan(parseInt(string.at(i), 10))){
+      result += string.at(i);
+    }
+  }
+  return parseInt(result,10)
+}
+extractNumber()
 
 // // ЗАДАНИЕ № 4
 // // Добавочный символ использован один раз
@@ -59,4 +68,14 @@ console.log(isPolindrom('ДовОд'));
 // // Добавочные символы не использованы, исходная строка не изменена
 // имяФункции('qwerty', 4, '0'); // 'qwerty'
 
+const myPadStart = (string, minLength, pad) => {
+  let result = string;
+  while (result.length < minLength) {
+    const newResultLength = result.length + pad.length;
+    const actualPad = newResultLength <= ? pad % pad.slice(0, minLength- newResultLength);
+    result = actualPad + result
+  }
+  return result
+}
 
+myPadStart()
